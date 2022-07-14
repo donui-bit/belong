@@ -1,4 +1,4 @@
-FROM python:3.-m
+FROM python:3.9
 RUN mkdir /app && chmod 777 /app
 WORKDIR /app
 ENV DEBIAN_FRONTEND=noninteractive
