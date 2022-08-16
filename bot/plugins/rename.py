@@ -29,7 +29,7 @@ from bot.core.handlers.big_rename import handle_big_rename
 async def rename_handler(c: Client, m: Message):
     # Checks
     if not m.from_user:
-        return await m.reply_text("I don't know about you sar :(")
+        return await m.reply_text("I don't know about you sir :(")
     if m.from_user.id not in Config.PRO_USERS:
         is_in_gap, sleep_time = await check_time_gap(m.from_user.id)
         if is_in_gap:
@@ -43,7 +43,7 @@ async def rename_handler(c: Client, m: Message):
         return await m.reply_text("Reply to any document/video/audio to rename it!", quote=True)
 
     # Proceed
-    editable = await m.reply_text("Now send me new file name!""current name video_info", quote=True)
+    editable = await m.reply_text("Now send me new file name!""**File Name:** `{_file_name}`\n\n", quote=True)
     user_input_msg: Message = await c.listen(m.chat.id)
     if user_input_msg.text is None:
         await editable.edit("Process Cancelled!")
