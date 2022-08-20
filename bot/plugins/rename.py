@@ -1,4 +1,4 @@
-+# (c) @sufail_sufu • @sufail_sufu
+# (c) @sufail_sufu • @sufail_sufu
 
 import time
 import mimetypes
