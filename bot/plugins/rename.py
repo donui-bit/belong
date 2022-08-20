@@ -44,7 +44,7 @@ async def rename_handler(c: Client, m: Message):
 
     # Proceed
     editable = await m.reply_text(cb.message)
-        replied_m = cb.message.reply_to_message
+        
         _file_name = get_media_file_name(replied_m)
         text = f"**File Name:** `{_file_name}`\n\n" \
     user_input_msg: Message = await c.listen(m.chat.id)
