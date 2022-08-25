@@ -44,7 +44,6 @@ async def rename_handler(c: Client, m: Message):
 
     # Proceed
         editable = file.file_name
-        reply_to_message_id = message.id)
     user_input_msg: Message = await c.listen(m.chat.id)
     if user_input_msg.text is None:
         await editable.edit("Process Cancelled!")
