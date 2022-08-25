@@ -44,13 +44,14 @@ async def rename_handler(c: Client, m: Message):
 
     # Proceed
 @Client.on_message(filters.private &( filters.document | filters.audio | filters.video ))
-editable = async def send_doc(client, message):
+  async def send_doc(client, message):
     file = getattr(message, message.media.value)
     filename = file.file_name
     filesize = humanize.naturalsize(file.file_size)
     fileid = file.file_id
     await message.reply_text(
         f"__What do you want me to do with this file?__\n**File Name** :- `{filename}`\n**File Size** :- `{filesize}`",
+        editable = file.file_name
         reply_to_message_id = message.id)
     user_input_msg: Message = await c.listen(m.chat.id)
     if user_input_msg.text is None:
