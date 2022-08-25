@@ -42,10 +42,9 @@ async def rename_handler(c: Client, m: Message):
     if (not m.reply_to_message) or (not m.reply_to_message.media) or (not get_file_attr(m.reply_to_message)):
         return await m.reply_text("Reply to any document/video/audio to rename it!", quote=True)
 
-    # proceed
-    
-editable = @Client.on_message(filters.private &( filters.document | filters.audio | filters.video ))
-async def send_doc(client, message):
+    # Proceed
+@Client.on_message(filters.private &( filters.document | filters.audio | filters.video ))
+editable = async def send_doc(client, message):
     file = getattr(message, message.media.value)
     filename = file.file_name
     filesize = humanize.naturalsize(file.file_size)
