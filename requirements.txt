@@ -3,7 +3,7 @@ TgCrypto
 pyromod
 python-dotenv
 dnspython
-motor
+motor==2.5.1
 Pillow
 hachoir
 mutagen
