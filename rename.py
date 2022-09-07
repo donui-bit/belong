@@ -43,7 +43,9 @@ async def rename_handler(c: Client, m: Message):
         return await m.reply_text("Reply to any document/video/audio to rename it!", quote=True)
 
     # Proceed
-    editable = await m.reply_text("\n\n📂**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n🗂**File Size:** `{humanbytes(file_size)}` Now send me new file name!", quote=True)
+editable = await m.reply_text("Now Send A New FileName\n"
+                              f"{file_name}", 
+                              quote=True)
     user_input_msg: Message = await c.listen(m.chat.id)
     if user_input_msg.text is None:
         await editable.edit("Process Cancelled!")
