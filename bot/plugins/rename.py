@@ -44,7 +44,7 @@ async def rename_handler(c: Client, m: Message):
 
     # Proceed
 title=(title if (title is not None) else file_path.rsplit('/', 1)[-1].rsplit(".", 1)[0]),
-    editable = ((Config.CAPTION.format((await bot.get_me()).username) + f"\n\n📂**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n🗂**File Size:** `{humanbytes(file_size)}`") if (caption_ is None) else caption_),
+    editable = await m.reply_text(f"{file_name}", quote=True)
     user_input_msg: Message = await c.listen(m.chat.id)
     if user_input_msg.text is None:
         await editable.edit("Process Cancelled!")
